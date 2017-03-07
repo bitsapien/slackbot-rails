@@ -42,6 +42,7 @@ A new resource in Model was created.
 2. Background job option.
 3. Add I18n support.
 4. Add fallbacks for configurations.
+5. Add more support for emojis.
 
 
 ## Contributing
