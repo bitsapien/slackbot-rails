@@ -30,10 +30,10 @@ module Slackbot
         cattr_accessor :slackbot_rails_options
         self.slackbot_rails_options = options
         if slackbot_rails_options[:message][:create].present?
-          after_create :push_create_notification_to_bot
+          after_commit :push_create_notification_to_bot, on: :create
         end
         if slackbot_rails_options[:message][:update].present?
-          after_update :push_update_notification_to_bot
+          after_commit :push_update_notification_to_bot, on: :update
         end
         rescue Exception => e
           logger.fatal "[Slackbot::Rails] Something went wrong with pushing to the bot:"
@@ -46,7 +46,12 @@ module Slackbot
 
     def push_create_notification_to_bot
       action = "create"
-      self.class.push_to_bot build_message(action)
+      begin
+        self.class.push_to_bot build_message(action)
+      rescue Exception => e
+          logger.fatal "[Slackbot::Rails] Something went wrong with pushing to the bot:"
+          logger.fatal "[Slackbot::Rails] #{e}"
+        end
     end
 
     def push_update_notification_to_bot
