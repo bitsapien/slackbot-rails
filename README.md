@@ -31,7 +31,7 @@ end
 
 This would send a notification on Slack:
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Slack Preview](https://raw.githubusercontent.com/bitsapien/slackbot-rails/master/images/slack-preview.png)
 
 
 #### Setting Defaults
