@@ -1,6 +1,6 @@
 # Slackbot::Rails
 
-This gem adds a class method to send notifications to your slack channels for create and update events on a resource it has been enabled in.
+An activerecord hook to send notifications to slack on updations and creation of resources.
 
 ## Installation
 
