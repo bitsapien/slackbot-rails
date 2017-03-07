@@ -9,7 +9,8 @@ module Slackbot
 
     module ClassMethods
       def bot
-        @bot ||= Slack::Notifier.new slackbot_rails_options[:bot][:webhook] do 
+        @bot ||= Slack::Notifier.new slackbot_rails_options[:bot][:webhook], 
+                                     http_options: { open_timeout: 5 }  do 
           defaults channel: '#general',
                    username: 'Untitled'
         end
@@ -18,7 +19,7 @@ module Slackbot
 
       def push_to_bot(message)
         begin
-          bot.ping(message, channel: slackbot_rails_options[:bot][:channel], username: slackbot_rails_options[:bot][:name])
+          bot.ping(text: message, channel: slackbot_rails_options[:bot][:channel], username: slackbot_rails_options[:bot][:name], icon_emoji: slackbot_rails_options[:bot][:icon])
         rescue Exception => e
           logger.fatal "[Slackbot::Rails] Something went wrong with pushing to the bot:"
           logger.fatal "[Slackbot::Rails] #{e}"
