@@ -36,6 +36,15 @@ A new resource in Model was created.
 ```
 
 
+#### Setting Defaults
+
+You may enable/disable notifications using a flag, for example in `application.rb`
+
+```ruby
+config.slackbot_rails_enable = Rails.env.production?
+```
+
+
 ## TODO
 
 1. Specs!

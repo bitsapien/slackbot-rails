@@ -1,7 +1,7 @@
 require 'slackbot/rails/engine'
 require 'slackbot/rails/version'
+require 'slackbot/railtie' if defined? ::Rails::Railtie
 require 'slack-notifier'
-require 'json'
 
 module Slackbot
   module Rails
@@ -30,10 +30,10 @@ module Slackbot
         begin
         cattr_accessor :slackbot_rails_options
         self.slackbot_rails_options = options
-        if slackbot_rails_options[:message][:create].present?
+        if Slackbot::Railtie.enable_notifications && slackbot_rails_options[:message][:create].present?
           after_commit :push_create_notification_to_bot, on: :create
         end
-        if slackbot_rails_options[:message][:update].present?
+        if Slackbot::Railtie.enable_notifications && slackbot_rails_options[:message][:update].present?
           after_commit :push_update_notification_to_bot, on: :update
         end
         rescue Exception => e
