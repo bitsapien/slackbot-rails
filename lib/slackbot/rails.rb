@@ -46,9 +46,10 @@ module Slackbot
     private
 
     def push_create_notification_to_bot
-      action = "create"
       begin
-        self.class.push_to_bot build_message(action)
+        Thread.new do
+          self.class.push_to_bot build_message('create')
+        end
       rescue Exception => e
           logger.fatal "[Slackbot::Rails] Something went wrong with pushing to the bot:"
           logger.fatal "[Slackbot::Rails] #{e}"
@@ -56,8 +57,14 @@ module Slackbot
     end
 
     def push_update_notification_to_bot
-      action = "update"
-      self.class.push_to_bot build_message(action)
+      begin
+        Thread.new do
+          self.class.push_to_bot build_message('update')
+        end
+      rescue Exception => e
+          logger.fatal "[Slackbot::Rails] Something went wrong with pushing to the bot:"
+          logger.fatal "[Slackbot::Rails] #{e}"
+        end
     end
 
     def build_message(action)
