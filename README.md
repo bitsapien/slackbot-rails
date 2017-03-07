@@ -41,6 +41,7 @@ A new resource in Model was created.
 1. Specs!
 2. Background job option.
 3. Add I18n support.
+4. Add fallbacks for configurations.
 
 
 ## Contributing
