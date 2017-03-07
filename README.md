@@ -31,9 +31,7 @@ end
 
 This would send a notification on Slack:
 
-```
-A new resource in Model was created.
-```
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 
 #### Setting Defaults

@@ -24,5 +24,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency "slack-notifier"
   spec.add_dependency "activerecord", "> 3.0"
   spec.add_dependency "activesupport", "> 3.0"
-  spec.add_dependency "json"
 end
