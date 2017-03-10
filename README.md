@@ -34,7 +34,7 @@ This would send a notification on Slack:
 ![Slack Preview](https://raw.githubusercontent.com/bitsapien/slackbot-rails/master/images/slack-preview.png)
 
 Attributes inside '{}' will be evaluated on the present object of the model, for example : 
-`It is {valid?} that the present object passed validations` would ouput ->
+`It is {valid?} that the present object passed validations` would output ->
 `It is true that the present object passed validation`
 
 
