@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Slackbot::Rails::VERSION
   spec.authors       = ["bitsapien"]
   spec.email         = ["bitsapien@gmail.com"]
-  spec.description   = "Gem for notifying slack about the creation and updating of ActiveRecord models."
-  spec.summary       = "Notify slack of model creations and updates"
+  spec.description   = "Gem for notifying slack about the creation and updation of ActiveRecord models."
+  spec.summary       = "Notify slack of model creates and updates"
   spec.homepage      = "http://github.com/bitsapien/slackbot-rails"
   spec.license       = "MIT"
 
